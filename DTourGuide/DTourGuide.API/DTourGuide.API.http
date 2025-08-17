@@ -1,0 +1,6 @@
+@DTourGuide.API_HostAddress = http://localhost:5234
+
+GET {{DTourGuide.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
