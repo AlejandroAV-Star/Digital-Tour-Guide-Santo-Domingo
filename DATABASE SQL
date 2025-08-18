@@ -1,0 +1,88 @@
+CREATE DATABASE IF NOT EXISTS DTourDB
+  DEFAULT CHARACTER SET utf8mb4
+  DEFAULT COLLATE utf8mb4_unicode_ci;
+
+USE DTourDB;
+
+CREATE TABLE IF NOT EXISTS Places (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(120) NOT NULL,
+    Description VARCHAR(2000),
+    Address VARCHAR(255),
+    OpeningHours VARCHAR(200),
+    Latitude DOUBLE NOT NULL,
+    Longitude DOUBLE NOT NULL,
+    Category INT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Photos (
+  Id INT AUTO_INCREMENT PRIMARY KEY,
+  PlaceId INT NOT NULL,
+  Url VARCHAR(500) NOT NULL,
+  Description VARCHAR(500),
+  CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_photos_places FOREIGN KEY (PlaceId) 
+    REFERENCES Places(Id) 
+    ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+INSERT INTO Places (Name, Description, Address, OpeningHours, Latitude, Longitude, Category)
+VALUES
+('Catedral Primada de América',
+ 'Primera catedral del Nuevo Mundo, inaugurada en 1541. Ejemplo de arquitectura gótica y renacentista.',
+ 'Calle Arzobispo Meriño, Ciudad Colonial',
+ 'Todos los días 8:00 - 18:00',
+ 18.4722, -69.8829, 1),
+
+('Iglesia de Regina Angelorum',
+ 'Iglesia barroca construida en el siglo XVI, vinculada al convento de las monjas dominicas.',
+ 'Calle Padre Billini, Ciudad Colonial',
+ 'Todos los días 8:00 - 18:00',
+ 18.4710, -69.8845, 1),
+
+('Museo de las Casas Reales',
+ 'Edificio colonial que albergaba las instituciones administrativas de la colonia española.',
+ 'Calle Las Damas, Ciudad Colonial',
+ 'Martes a Domingo 9:00 - 17:00',
+ 18.4770, -69.8825, 2),
+
+('Museo Alcázar de Colón',
+ 'Residencia virreinal construida por Diego Colón, hijo de Cristóbal Colón.',
+ 'Plaza de España, Ciudad Colonial',
+ 'Martes a Domingo 9:00 - 17:00',
+ 18.4775, -69.8820, 2),
+
+('Parque Colón',
+ 'Plaza central de la Ciudad Colonial, frente a la Catedral, con estatua de Cristóbal Colón.',
+ 'Frente a la Catedral Primada, Ciudad Colonial',
+ 'Acceso libre las 24 horas',
+ 18.4726, -69.8832, 3),
+
+('Plaza de España',
+ 'Amplia explanada frente al Alcázar de Colón, utilizada para eventos y actividades culturales.',
+ 'Frente al Alcázar de Colón, Ciudad Colonial',
+ 'Acceso libre las 24 horas',
+ 18.4773, -69.8821, 3),
+
+('Faro a Colón',
+ 'Monumento y mausoleo en honor a Cristóbal Colón, inaugurado en 1992.',
+ 'Avenida España, Santo Domingo Este',
+ 'Martes a Domingo 9:00 - 17:00',
+ 18.4717, -69.8735, 4),
+
+('Puerta del Conde',
+ 'Entrada histórica a la ciudad amurallada, escenario de la proclamación de la Independencia en 1844.',
+ 'Parque Independencia, Santo Domingo',
+ 'Acceso libre las 24 horas',
+ 18.4711, -69.8925, 4),
+
+('Fortaleza Ozama',
+ 'Fortaleza construida en el siglo XVI a orillas del río Ozama, la más antigua de América.',
+ 'Calle Las Damas, Ciudad Colonial',
+ 'Martes a Domingo 9:00 - 17:00',
+ 18.4756, -69.8828, 4),
+
+('Panteón de la Patria',
+ 'Antiguo templo jesuita convertido en mausoleo nacional donde reposan los restos de héroes dominicanos.',
+ 'Calle Las Damas, Ciudad Colonial',
+ 'Martes a Domingo 8:00 - 18:00',
+ 18.4750, -69.8826, 4);
