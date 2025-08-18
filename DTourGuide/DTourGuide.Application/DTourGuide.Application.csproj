@@ -8,9 +8,15 @@
 
   <ItemGroup>
     <Folder Include="Contracts\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="MappingProfiles\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DTourGuide.Domain\DTourGuide.Domain.csproj" />
+    <ProjectReference Include="..\DTourGuide.Infrastructure\DTourGuide.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

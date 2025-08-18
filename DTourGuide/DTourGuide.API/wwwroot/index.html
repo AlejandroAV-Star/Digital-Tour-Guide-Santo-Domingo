@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DTourGuide – Mapa Interactivo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Mapa Interactivo – Santo Domingo</h1>
+        <div class="controls">
+            <select id="category">
+                <option value="">Todas las categorías</option>
+                <option value="Iglesia">Iglesias</option>
+                <option value="Museo">Museos</option>
+                <option value="Plaza">Plazas</option>
+                <option value="Monumento">Monumentos</option>
+            </select>
+            <input id="search" placeholder="Buscar..." />
+            <button id="btnFilter">Filtrar</button>
+            <button id="btnFavs">Ver Itinerario</button>
+        </div>
+    </header>
+
+    <div id="map"></div>
+
+    <aside id="panel">
+        <h2>Favoritos</h2>
+        <ul id="favList"></ul>
+    </aside>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
